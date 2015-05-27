@@ -13,13 +13,12 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = Favorite.new
-    @favorite.user_id = params[:user_id]
-    @favorite.product_id = params[:product_id]
-    @favorite.manufacturer_id = params[:manufacturer_id]
-    @favorite.notes = params[:notes]
+    @favorite.favoriteable_id = params[:favoriteable_id]
+    @favorite.favoriteable_type = params[:favoriteable_type].capitalize
+    @favorite.user_id = User.first.id
 
     if @favorite.save
-      redirect_to "/favorites", :notice => "Favorite created successfully."
+      redirect_to :back, :notice => "Favorite created successfully."
     else
       render 'new'
     end

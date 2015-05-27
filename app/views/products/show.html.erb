@@ -16,6 +16,12 @@
               <dt>Food Group</dt>
               <dd><%= @product.food_group.name %></dd>
 
+              <dt>Manufacturer</dt>
+              <dd><%= @product.manufacturer.name %></dd>
+
+              <dt>Category</dt>
+              <dd><%= @product.category.name %></dd>
+
             </dl>
             <div class="btn-group btn-group-justified">
               <a href="/products" class="btn btn-primary">
@@ -29,6 +35,16 @@
               <a href="/delete_product/<%= @product.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
+
+              <% if @product.favorited? %>
+              <a href="#" class="btn btn-success" rel="nofollow" disabled>
+                <i class="fa fa-star"></i>
+              </a>
+              <% else %>
+              <a href="/create_favorite/<%= @product.id %>/product" class="btn btn-success" rel="nofollow">
+                <i class="fa fa-star-o"></i>
+              </a>
+              <% end %>
             </div>
           </div>
         </div>
@@ -37,7 +53,7 @@
       <ul class="list-group">
       <% @product.favorites.each do |favorite| %>
         <li class="list-group-item">
-          <%= favorite.user.username %> likes <%= favorite.manufacturer.name %>
+          <%= favorite.user.username %> likes <%= favorite.favoriteable.name %>
         </li>
       <% end %>
       </ul>

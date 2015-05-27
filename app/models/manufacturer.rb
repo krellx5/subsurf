@@ -1,6 +1,10 @@
 class Manufacturer < ActiveRecord::Base
-  validates :manufacturer_name, :presence => true, :uniqueness => { :scope => :address }
+  validates :name, :presence => true, :uniqueness => { :scope => :address }
 
-  belongs_to :category
-  has_many :favorites
+  has_many :products
+  has_many :favorites, as: :favoriteable
+
+  def favorited?
+    favorites.any?
+  end
 end

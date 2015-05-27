@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/delete_manufacturer/:id", :controller => "manufacturers", :action => "destroy"
   #------------------------------
 
-  root "favorites#index"
+  root "products#index"
 
   # Routes for the Category resource:
   # CREATE
@@ -91,7 +91,6 @@ Rails.application.routes.draw do
   # Routes for the Favorite resource:
   # CREATE
   get "/favorites/new", :controller => "favorites", :action => "new"
-  post "/create_favorite", :controller => "favorites", :action => "create"
 
   # READ
   get "/favorites", :controller => "favorites", :action => "index"
@@ -103,6 +102,10 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_favorite/:id", :controller => "favorites", :action => "destroy"
+
+  # Favorite
+  get "/create_favorite/:favoriteable_id/:favoriteable_type", :controller => "favorites", :action => "create"
+
   #------------------------------
 
 end

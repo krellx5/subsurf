@@ -11,10 +11,10 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Category Name</dt>
-              <dd><%= @category.category_name %></dd>
+              <dd><%= @category.name %></dd>
 
               <dt>City</dt>
-              <dd><%= @category.category_notes %></dd>
+              <dd><%= @category.notes %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
@@ -29,6 +29,17 @@
               <a href="/delete_category/<%= @category.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
+
+              <% if @category.favorited? %>
+              <a href="#" class="btn btn-success" rel="nofollow" disabled>
+                <i class="fa fa-star"></i>
+              </a>
+              <% else %>
+              <a href="/create_favorite/<%= @category.id %>/category" class="btn btn-success" rel="nofollow">
+                <i class="fa fa-star-o"></i>
+              </a>
+              <% end %>
+
             </div>
           </div>
         </div>
@@ -51,7 +62,7 @@
         </li>
         <% @category.favorites.each do |favorite| %>
           <li class="list-group-item">
-            <%= favorite.user.username %> likes <%= favorite.product.name %> at <%= favorite.manufacturer.name %>
+            <%= favorite.user.username %> likes <%= favorite.favoriteable.name %>
           </li>
         <% end %>
       </ul>

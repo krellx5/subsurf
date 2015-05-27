@@ -13,9 +13,8 @@ class ManufacturersController < ApplicationController
 
   def create
     @manufacturer = Manufacturer.new
-    @manufacturer.manufacturer_name = params[:manufacturer_name]
+    @manufacturer.name = params[:name]
     @manufacturer.address = params[:address]
-    @manufacturer.category_id = params[:category_id]
 
     if @manufacturer.save
       redirect_to "/manufacturers", :notice => "Manufacturer created successfully."
@@ -31,9 +30,8 @@ class ManufacturersController < ApplicationController
   def update
     @manufacturer = Manufacturer.find(params[:id])
 
-    @manufacturer.manufacturer_name = params[:manufacturer_name]
+    @manufacturer.name = params[:name]
     @manufacturer.address = params[:address]
-    @manufacturer.category_id = params[:category_id]
 
     if @manufacturer.save
       redirect_to "/manufacturers", :notice => "Manufacturer updated successfully."

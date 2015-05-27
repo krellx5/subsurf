@@ -13,8 +13,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new
-    @category.category_name = params[:category_name]
-    @category.category_notes = params[:category_notes]
+    @category.name = params[:name]
+    @category.notes = params[:notes]
 
     if @category.save
       redirect_to "/categories", :notice => "Category created successfully."
@@ -30,8 +30,8 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
 
-    @category.category_name = params[:category_name]
-    @category.category_notes = params[:category_notes]
+    @category.name = params[:name]
+    @category.notes = params[:notes]
 
     if @category.save
       redirect_to "/categories", :notice => "Category updated successfully."

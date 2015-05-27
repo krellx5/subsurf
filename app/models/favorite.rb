@@ -1,9 +1,8 @@
 class Favorite < ActiveRecord::Base
   validates :user_id, :presence => true
-  validates :product_id, :presence => true
-  validates :manufacturer_id, :presence => true
+  validates_uniqueness_of :user_id, :scope => [:favoriteable_id, :favoriteable_type]
 
+
+  belongs_to :favoriteable, :polymorphic => true
   belongs_to :user
-  belongs_to :product
-  belongs_to :manufacturer
 end

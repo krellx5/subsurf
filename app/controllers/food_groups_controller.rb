@@ -1,19 +1,19 @@
-class Food_groupsController < ApplicationController
+class FoodGroupsController < ApplicationController
   def index
-    @food_groups = Food_group.all
+    @food_groups = FoodGroup.all
   end
 
   def show
-    @food_group = Food_group.find(params[:id])
+    @food_group = FoodGroup.find(params[:id])
   end
 
   def new
-    @food_group = Food_group.new
+    @food_group = FoodGroup.new
   end
 
   def create
-    @food_group = Food_group.new
-    @food_group.food_group_name = params[:food_group_name]
+    @food_group = FoodGroup.new
+    @food_group.name = params[:name]
 
     if @food_group.save
       redirect_to "/food_groups", :notice => "Food Group created successfully."
@@ -23,13 +23,13 @@ class Food_groupsController < ApplicationController
   end
 
   def edit
-    @food_group = Food_group.find(params[:id])
+    @food_group = FoodGroup.find(params[:id])
   end
 
   def update
-    @food_group = Food_group.find(params[:id])
+    @food_group = FoodGroup.find(params[:id])
 
-    @food_group.food_group_name = params[:food_group_name]
+    @food_group.name = params[:name]
 
     if @food_group.save
       redirect_to "/food_groups", :notice => "Food Group updated successfully."
@@ -39,7 +39,7 @@ class Food_groupsController < ApplicationController
   end
 
   def destroy
-    @food_group = Food_group.find(params[:id])
+    @food_group = FoodGroup.find(params[:id])
 
     @food_group.destroy
 

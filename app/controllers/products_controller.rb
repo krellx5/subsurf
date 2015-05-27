@@ -13,8 +13,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new
-    @product.product_name = params[:product_name]
-    @product.cuisine_id = params[:food_group_id]
+    @product.name = params[:name]
+    @product.food_group_id = params[:food_group_id]
+    @product.manufacturer_id = params[:manufacturer_id]
+    @product.category_id = params[:category_id]
 
     if @product.save
       redirect_to "/products", :notice => "Product created successfully."
@@ -30,7 +32,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
 
-    @product.produce_name = params[:product_name]
+    @product.produce_name = params[:name]
     @product.cuisine_id = params[:food_group_id]
 
     if @product.save

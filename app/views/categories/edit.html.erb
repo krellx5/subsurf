@@ -22,23 +22,23 @@
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-          <!-- Label and input for category_name -->
+          <!-- Label and input for name -->
           <div class="form-group">
             <label for="name" class="col-sm-2 control-label">
               Category Name
             </label>
             <div class="col-sm-10">
-              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @category.category_name %>">
+              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @category.name %>">
             </div>
           </div>
 
-          <!-- Label and input for city -->
+          <!-- Label and input for notes -->
           <div class="form-group">
-            <label for="city" class="col-sm-2 control-label">
-              City
+            <label for="notes" class="col-sm-2 control-label">
+              Notes
             </label>
             <div class="col-sm-10">
-              <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @category.category_notes %>">
+              <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @category.notes %>">
             </div>
           </div>
 
