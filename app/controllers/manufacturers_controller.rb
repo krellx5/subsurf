@@ -1,4 +1,7 @@
 class ManufacturersController < ApplicationController
+
+  #skip_berfore_action :authenticate_user!, :only => [:index, :show]
+
   def index
     @manufacturers = Manufacturer.all
   end

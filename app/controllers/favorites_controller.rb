@@ -1,6 +1,17 @@
 class FavoritesController < ApplicationController
+
+  before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :show, :edit]
+
+  def ensure_current_user_is_owner
+    @favorite = Favorite.find(params[:id])
+    if @favorite.user_id != current_user.id
+      redirect_to root_url, :alert => "Nice try"
+    end
+  end
+
+
   def index
-    @favorites = Favorite.all
+    @favorites = current_user.favorites
   end
 
   def show
@@ -15,7 +26,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new
     @favorite.favoriteable_id = params[:favoriteable_id]
     @favorite.favoriteable_type = params[:favoriteable_type].capitalize
-    @favorite.user_id = User.first.id
+    @favorite.user_id = current_user.id
 
     if @favorite.save
       redirect_to :back, :notice => "Favorite created successfully."

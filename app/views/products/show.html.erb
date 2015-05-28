@@ -53,7 +53,7 @@
       <ul class="list-group">
       <% @product.favorites.each do |favorite| %>
         <li class="list-group-item">
-          <%= favorite.user.username %> likes <%= favorite.favoriteable.name %>
+          <%= favorite.user.email %> likes <%= favorite.favoriteable.name %>
         </li>
       <% end %>
       </ul>
