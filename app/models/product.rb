@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   belongs_to :manufacturer
   has_many :favorites, as: :favoriteable
 
-  def favorited?
-    favorites.any?
+  def favorited?(user)
+    favorites.where(user_id: user.id).any?
   end
 end

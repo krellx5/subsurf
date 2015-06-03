@@ -4,14 +4,12 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Product #<%= @product.id %></h3>
+        <h3 class="panel-title"><%= @product.name %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Product Name</dt>
-              <dd><%= @product.name %></dd>
 
               <dt>Food Group</dt>
               <dd><%= @product.food_group.name %></dd>
@@ -36,7 +34,7 @@
                 <i class="fa fa-trash-o"></i>
               </a>
 
-              <% if @product.favorited? %>
+              <% if @product.favorited?(current_user) %>
               <a href="#" class="btn btn-success" rel="nofollow" disabled>
                 <i class="fa fa-star"></i>
               </a>

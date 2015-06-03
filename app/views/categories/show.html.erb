@@ -4,14 +4,12 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Category #<%= @category.id %></h3>
+        <h3 class="panel-title"><%= @category.name %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Category Name</dt>
-              <dd><%= @category.name %></dd>
 
               <dt>City</dt>
               <dd><%= @category.notes %></dd>
@@ -30,7 +28,7 @@
                 <i class="fa fa-trash-o"></i>
               </a>
 
-              <% if @category.favorited? %>
+              <% if @category.favorited?(current_user) %>
               <a href="#" class="btn btn-success" rel="nofollow" disabled>
                 <i class="fa fa-star"></i>
               </a>
@@ -49,7 +47,7 @@
         <li class="list-group-item list-group-item-success">
           All Manufacturers
         </li>
-        <% @category.manufacturers.each do |manufacturer| %>
+        <% @category.manufacturers.uniq.each do |manufacturer| %>
           <li class="list-group-item">
             <%= manufacturer.name %>
           </li>

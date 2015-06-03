@@ -12,6 +12,9 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = current_user.favorites
+    @favorites_for_products = current_user.favorites.where(favoriteable_type: "Product")
+    @favorites_for_manufacturers = current_user.favorites.where(favoriteable_type: "Manufacturer")
+    @favorites_for_categories = current_user.favorites.where(favoriteable_type: "Category")
   end
 
   def show
