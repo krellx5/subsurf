@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+
   validates :name, :presence => true, :uniqueness => true
   validates :food_group_id, :presence => true
 

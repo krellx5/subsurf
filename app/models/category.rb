@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+
   validates :name, :presence => true, :uniqueness => { :scope => :notes }
 
   has_many :products
