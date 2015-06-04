@@ -17,6 +17,9 @@
           <dt>Manufacturer</dt>
           <dd><%= favorite.favoriteable.manufacturer.name %></dd>
 
+          <dt>Posted At</dt>
+          <dd><%= time_ago_in_words(favorite.created_at) %> ago</dd>
+
         </dl>
         <div class="btn-group btn-group-justified">
           <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
@@ -55,6 +58,9 @@
 
 
 
+          <dt>Posted At</dt>
+          <dd><%= time_ago_in_words(favorite.created_at) %> ago</dd>
+
         </dl>
         <div class="btn-group btn-group-justified">
           <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
@@ -91,7 +97,8 @@
       <div class="panel-body">
         <dl>
 
-
+        <dt>Posted At</dt>
+        <dd><%= time_ago_in_words(favorite.created_at) %> ago</dd>
 
         </dl>
         <div class="btn-group btn-group-justified">

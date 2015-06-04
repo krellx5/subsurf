@@ -34,6 +34,9 @@
           <dt>Category</dt>
           <dd><%= product.category.name %></dd>
 
+          <dt>Posted At</dt>
+          <dd><%= time_ago_in_words(product.created_at) %> ago</dd>
+
         </dl>
         <div class="btn-group btn-group-justified">
           <a href="/products/<%= product.id %>" class="btn btn-primary">

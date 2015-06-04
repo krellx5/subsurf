@@ -28,6 +28,9 @@
           <dt>Category Notes</dt>
           <dd><%= category.notes %></dd>
 
+          <dt>Posted At</dt>
+          <dd><%= time_ago_in_words(category.created_at) %> ago</dd>
+
         </dl>
         <div class="btn-group btn-group-justified">
           <a href="/categories/<%= category.id %>" class="btn btn-primary">

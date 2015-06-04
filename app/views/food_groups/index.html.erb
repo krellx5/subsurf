@@ -27,6 +27,9 @@
           <dt>Food Group Name</dt>
           <dd><%= food_group.name %></dd>
 
+          <dt>Posted At</dt>
+          <dd><%= time_ago_in_words(food_group.created_at) %> ago</dd>
+
         </dl>
         <div class="btn-group btn-group-justified">
           <a href="/food_groups/<%= food_group.id %>" class="btn btn-primary">

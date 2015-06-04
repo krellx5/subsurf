@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
     @category.name = params[:name]
     @category.notes = params[:notes]
 
+
     if @category.save
       redirect_to "/categories", :notice => "Category created successfully."
     else
