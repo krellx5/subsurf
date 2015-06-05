@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
+
   # Routes for the Manufacturer resource:
   # CREATE
   get "/manufacturers/new", :controller => "manufacturers", :action => "new"
@@ -93,6 +94,24 @@ Rails.application.routes.draw do
 
   # Favorite
   get "/create_favorite/:favoriteable_id/:favoriteable_type", :controller => "favorites", :action => "create"
+
+  #------------------------------
+
+  # Routes for the Friend_request resource:
+  # CREATE
+  get "/friend_requests/new", :controller => "friend_requests", :action => "new"
+  post "/create_friend_request", :controller => "friend_requests", :action => "create"
+
+  # READ
+  get "/friend_requests", :controller => "friend_requests", :action => "index"
+  get "/friend_requests/:id", :controller => "friend_requests", :action => "show"
+
+  # UPDATE
+  get "/friend_requests/:id/edit", :controller => "friend_requests", :action => "edit"
+  post "/update_friend_request/:id", :controller => "friend_requests", :action => "update"
+
+  # DELETE
+  get "/delete_friend_request/:id", :controller => "friend_requests", :action => "destroy"
 
   #------------------------------
 
