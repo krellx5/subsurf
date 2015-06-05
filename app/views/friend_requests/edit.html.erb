@@ -15,7 +15,7 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Friend Request #<%= @friend_request.id %></h3>
+        <h3 class="panel-title"><%= @friend_request.receiver.email %></h3>
       </div>
       <div class="panel-body">
         <form action="/update_friend_request/<%= @friend_request.id %>" method="post" class="form-horizontal">
@@ -26,10 +26,10 @@
           <!-- Label and input for receiver_id -->
           <div class="form-group">
             <label for="receiver_id" class="col-sm-2 control-label">
-              Receiver
+              Edit Friend:
             </label>
             <div class="col-sm-10">
-              <input type="text" id="receiver_id" name="receiver_id" placeholder="Receiver" class="form-control" value="<%= @friend_request.receiver_id %>">
+              <input type="text" id="receiver_id" name="receiver_id" placeholder="Receiver" class="form-control" value="<%= @friend_request.receiver.email %>">
             </div>
           </div>
 

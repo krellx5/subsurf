@@ -1,44 +1,68 @@
-<div class="page-header">
-  <h1>
-    My Products
-  </h1>
-</div>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-success">
+        People I Follow (<%= current_user.friends_where_sender.count %>)
+      </li>
+      <% current_user.friends_where_sender.each do |user| %>
+      <li class="list-group-item"><%= user.email %></li>
+      <% end %>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-success">
+        People That Follow Me (<%= current_user.friends_where_receiver.count %>)
+      </li>
+      <% current_user.friends_where_receiver.each do |user| %>
+      <li class="list-group-item"><%= user.email %></li>
+      <% end %>
+    </ul>
 
-<div class="row isotope-container">
-  <% @favorites_for_products.each do |favorite| %>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-      <%= render 'product', favorite: favorite %>
+  </div>
+
+
+  <div class="col-md-9">
+    <div class="page-header">
+      <h1>
+        My Products
+      </h1>
     </div>
-  <% end %>
-</div>
 
-<div class="page-header">
-  <h1>
-    My Manufacturers
-  </h1>
-</div>
-
-<div class="row isotope-container">
-  <% @favorites_for_manufacturers.each do |favorite| %>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-      <%= render "manufacturer", favorite: favorite %>
+    <div class="row isotope-container">
+      <% @favorites_for_products.each do |favorite| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+        <%= render 'product', favorite: favorite %>
+      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
 
-<div class="page-header">
-  <h1>
-    My Categories
-  </h1>
-</div>
-
-<div class="row isotope-container">
-  <% @favorites_for_categories.each do |favorite| %>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-      <%= render 'category', favorite: favorite %>
+    <div class="page-header">
+      <h1>
+        My Manufacturers
+      </h1>
     </div>
-  <% end %>
-</div>
 
+    <div class="row isotope-container">
+      <% @favorites_for_manufacturers.each do |favorite| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+        <%= render "manufacturer", favorite: favorite %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="page-header">
+      <h1>
+        My Categories
+      </h1>
+    </div>
+
+    <div class="row isotope-container">
+      <% @favorites_for_categories.each do |favorite| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+        <%= render 'category', favorite: favorite %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 

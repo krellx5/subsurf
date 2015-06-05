@@ -4,7 +4,7 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Friend Request #<%= @friend_request.id %></h3>
+        <h3 class="panel-title"><%= @friend_request.receiver.email %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -13,8 +13,8 @@
               <dt>Sender</dt>
               <dd><%= @friend_request.sender.email %></dd>
 
-              <dt>Receiver</dt>
-              <dd><%= @friend_request.receiver.email %></dd>
+              <dt>Posted At</dt>
+              <dd><%= time_ago_in_words(@friend_request.created_at) %> ago</dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
