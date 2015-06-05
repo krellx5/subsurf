@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'devise'
-gem 'activeadmin', '~> 1.0.0.pre1'
-gem 'chronic
 
+gem 'activeadmin'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

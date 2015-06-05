@@ -14,6 +14,10 @@
               <dt>Address</dt>
               <dd><%= @manufacturer.address %></dd>
 
+              <dt>Posted At</dt>
+              <dd><%= time_ago_in_words(@manufacturer.created_at) %> ago</dd>
+
+
 
             </dl>
             <div class="btn-group btn-group-justified">

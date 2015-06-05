@@ -14,6 +14,8 @@
               <dt>Category Notes</dt>
               <dd><%= @category.notes %></dd>
 
+              <dt>Posted At</dt>
+              <dd><%= time_ago_in_words(@category.created_at) %> ago</dd>
 
 
 

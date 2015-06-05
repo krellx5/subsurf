@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= favorite.favoriteable.name %></h3>
+  </div>
+  <div class="panel-body">
+    <dl>
+
+    <dt>Category Notes</dt>
+    <dd><%= favorite.favoriteable.notes %></dd>
+
+
+    <dt>Posted At</dt>
+    <dd><%= time_ago_in_words(favorite.created_at) %> ago</dd>
+
+    </dl>
+    <div class="btn-group btn-group-justified">
+      <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
+        <i class="fa fa-search-plus"></i>
+      </a>
+
+      <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">
+        <i class="fa fa-edit"></i>
+      </a>
+
+      <a href="/delete_favorite/<%= favorite.id %>" class="btn btn-danger" rel="nofollow">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
