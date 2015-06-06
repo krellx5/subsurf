@@ -8,6 +8,8 @@ class Product < ActiveRecord::Base
   belongs_to :manufacturer
   has_many :favorites, as: :favoriteable
 
+  mount_uploader :image, ImageUploader
+
   def favorited?(user)
     favorites.where(user_id: user.id).any?
   end

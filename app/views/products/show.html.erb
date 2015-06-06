@@ -20,6 +20,9 @@
               <dt>Category</dt>
               <dd><%= @product.category.name %></dd>
 
+              <dt>Image</dt>
+              <dd><img src="<%= @product.image %>" class="img-responsive"></dd>
+
               <dt>Posted At</dt>
               <dd><%= time_ago_in_words(@product.created_at) %> ago</dd>
 
