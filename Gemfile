@@ -2,7 +2,11 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
-gem 'activeadmin'
+gem 'activeadmin', '~> 1.0.0.pre1'
+
+gem 'carrierwave'
+
+gem 'ransack'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

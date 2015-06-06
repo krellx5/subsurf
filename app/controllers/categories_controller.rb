@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all.order(:name)
+    @q = Category.ransack(params[:q])
+    @categories = @q.result(:distinct => true).includes(:products, :manufacturers).all.order(:name)
   end
 
   def show

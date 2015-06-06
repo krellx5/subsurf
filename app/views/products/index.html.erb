@@ -5,13 +5,35 @@
   </h1>
 </div>
 
-<!-- Responsive, Isotope-based layout example -->
+<%= search_form_for @q do |f| %>
+  <p class="lead">Narrow Results:</p>
 
-<div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Products (start typing)" class="form-control">
+
+  <div class="form-group">
+    <%= f.label :name_cont, "Product Name Containing" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Enter Text" %>
   </div>
-</div>
+
+  <div class="form-group">
+    <%= f.label :food_group_name_cont, "Food Group Name Containing"%>
+    <%= f.text_field :food_group_name_cont, :class => "form-control", :placeholder => "Enter Text" %>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :manufacturer_name_or_manufacturer_address_cont, "Manufacturer Name or Address Containing" %>
+    <%= f.text_field :manufacturer_name_or_manufacturer_address_cont, :class => "form-control", :placeholder => "Enter Text" %>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :category_name_or_category_notes_cont, "Category Name or Address Containing" %>
+    <%= f.text_field :category_name_or_category_notes_cont, :class => "form-control", :placeholder => "Enter Text" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <a href="/products" class="btn btn-default btn-block">Clear Filters</a>
+<% end %>
 
 <hr>
 

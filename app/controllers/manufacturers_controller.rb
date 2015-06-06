@@ -3,7 +3,8 @@ class ManufacturersController < ApplicationController
   #skip_berfore_action :authenticate_user!, :only => [:index, :show]
 
   def index
-    @manufacturers = Manufacturer.all.order(:name)
+    @q = Manufacturer.ransack(params[:q])
+    @manufacturers = @q.result(:distinct => true).includes(:products).all.order(:name)
   end
 
   def show

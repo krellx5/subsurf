@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all.order(:name)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(:distinct => true).includes(:manufacturer, :category, :food_group).all.order(:name)
   end
 
   def show
