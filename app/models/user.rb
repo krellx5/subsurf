@@ -18,4 +18,13 @@ class User < ActiveRecord::Base
 
 
   has_many :timeline_favorites, :through => :friends_where_sender, :source => :favorites
+
+  after_create :follow_myself
+
+  def follow_myself
+    friend_request = FriendRequest.new
+    friend_request.sender_id = self.id
+    friend_request.receiver_id = self.id
+    friend_request.save
+  end
 end
