@@ -15,11 +15,11 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Manufacturer #<%= @manufacturer.id %></h3>
+        <h3 class="panel-title">Update <%= @manufacturer.name %></h3>
       </div>
       <div class="panel-body">
         <form action="/update_manufacturer/<%= @manufacturer.id %>" method="post" class="form-horizontal">
-
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
           <!-- Label and input for name -->
           <div class="form-group">

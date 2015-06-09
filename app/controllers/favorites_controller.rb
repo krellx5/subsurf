@@ -13,9 +13,9 @@ class FavoritesController < ApplicationController
   def index
     @favorites = current_user.favorites
     #@favorites = current_user.timeline_favorites.order("created_at DESC")
-    @favorites_for_products = current_user.favorites.where(favoriteable_type: "Product")
-    @favorites_for_manufacturers = current_user.favorites.where(favoriteable_type: "Manufacturer")
-    @favorites_for_categories = current_user.favorites.where(favoriteable_type: "Category")
+    @favorites_for_products = current_user.timeline_favorites.where(favoriteable_type: "Product")
+    @favorites_for_manufacturers = current_user.timeline_favorites.where(favoriteable_type: "Manufacturer")
+    @favorites_for_categories = current_user.timeline_favorites.where(favoriteable_type: "Category")
   end
 
   def show
@@ -31,6 +31,7 @@ class FavoritesController < ApplicationController
     @favorite.favoriteable_id = params[:favoriteable_id]
     @favorite.favoriteable_type = params[:favoriteable_type].capitalize
     @favorite.user_id = current_user.id
+    @favorite.notes = params[:notes]
 
     if @favorite.save
       redirect_to :back, :notice => "Favorite created successfully."
@@ -46,9 +47,9 @@ class FavoritesController < ApplicationController
   def update
     @favorite = Favorite.find(params[:id])
 
-    @favorite.user_id = params[:user_id]
-    @favorite.product_id = params[:product_id]
-    @favorite.manufacturer_id = params[:manufacturer_id]
+    @favorite.favoriteable_id = params[:favoriteable_id]
+    @favorite.favoriteable_type = params[:favoriteable_type].capitalize
+    @favorite.user_id = current_user.id
     @favorite.notes = params[:notes]
 
     if @favorite.save

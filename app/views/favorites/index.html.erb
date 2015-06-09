@@ -29,9 +29,7 @@
 
     <div class="row isotope-container">
       <% @favorites_for_products.each do |favorite| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-        <%= render 'product', favorite: favorite %>
-      </div>
+        <%= render 'products/product', product: favorite.favoriteable %>
       <% end %>
     </div>
 

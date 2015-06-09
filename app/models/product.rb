@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
   belongs_to :food_group
   belongs_to :category
   belongs_to :manufacturer
-  has_many :favorites, as: :favoriteable
+  has_many :favorites, as: :favoriteable, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

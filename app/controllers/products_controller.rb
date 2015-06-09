@@ -33,9 +33,11 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-
-    @product.produce_name = params[:name]
-    @product.cuisine_id = params[:food_group_id]
+    @product.name = params[:name]
+    @product.food_group_id = params[:food_group_id]
+    @product.manufacturer_id = params[:manufacturer_id]
+    @product.category_id = params[:category_id]
+    @product.image = params[:image]
 
     if @product.save
       redirect_to "/products", :notice => "Product updated successfully."

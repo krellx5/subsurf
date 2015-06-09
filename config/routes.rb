@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-
-  resources :friend_requests
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
+
+  resources :friend_requests
+
 
   # Routes for the Manufacturer resource:
   # CREATE

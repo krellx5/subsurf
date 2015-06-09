@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
 
   has_many :friend_requests_where_sender, :class_name => "FriendRequest", :foreign_key => "sender_id"
